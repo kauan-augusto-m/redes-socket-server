@@ -186,6 +186,7 @@ def servir():
         datefmt="%H:%M:%S",
     )
     servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    servidor.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # permite reiniciar na hora, sem esperar o TIME_WAIT
     try:
         servidor.bind((HOST, PORT))
         servidor.listen()
