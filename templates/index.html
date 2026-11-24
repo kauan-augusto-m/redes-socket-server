@@ -2,25 +2,126 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadastro de itens</title>
+  <style>
+    :root {
+      --papel: #f6f1e7;
+      --tinta: #2b2622;
+      --tinta-suave: #6f665c;
+      --linha: #d9d0bf;
+      --destaque: #a23b24;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 64px 24px;
+      background: var(--papel);
+      color: var(--tinta);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 40px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .nota {
+      margin: 0 0 48px;
+      color: var(--tinta-suave);
+      font-size: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tinta-suave);
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+      padding: 8px 0;
+      border: 0;
+      border-bottom: 2px solid var(--linha);
+      background: transparent;
+      color: var(--tinta);
+      font: inherit;
+      border-radius: 0;
+    }
+
+    textarea { min-height: 88px; resize: vertical; }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-bottom-color: var(--destaque);
+    }
+
+    button {
+      padding: 12px 28px;
+      border: 2px solid var(--destaque);
+      background: var(--destaque);
+      color: var(--papel);
+      font: inherit;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--tinta); border-color: var(--tinta); }
+    button:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
+
+    h2 {
+      margin: 64px 0 16px;
+      padding-top: 24px;
+      border-top: 2px solid var(--tinta);
+      font-size: 24px;
+    }
+
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--linha);
+      overflow-wrap: anywhere;
+    }
+
+    li strong { color: var(--destaque); }
+  </style>
 </head>
 <body>
-  <h1>Cadastro de itens</h1>
-  <form action="/cadastrar" method="post" enctype="application/x-www-form-urlencoded">
-    <p>
+  <main>
+    <h1>Cadastro de itens</h1>
+    <p class="nota">Cada navegador tem a sua lista. Abra esta página em outro e compare.</p>
+
+    <form action="/cadastrar" method="post" enctype="application/x-www-form-urlencoded">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome">
-    </p>
-    <p>
+
       <label for="descricao">Descrição</label>
       <textarea id="descricao" name="descricao"></textarea>
-    </p>
-    <button type="submit">Cadastrar</button>
-  </form>
 
-  <h2>Itens desta sessão</h2>
-  <ul>
-    {{ITENS}}
-  </ul>
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Itens desta sessão</h2>
+    <ul>
+      {{ITENS}}
+    </ul>
+  </main>
 </body>
 </html>
