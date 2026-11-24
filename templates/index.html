@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Cadastro de itens</title>
+</head>
+<body>
+  <h1>Cadastro de itens</h1>
+  <form action="/cadastrar" method="post" enctype="application/x-www-form-urlencoded">
+    <p>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome">
+    </p>
+    <p>
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" name="descricao"></textarea>
+    </p>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h2>Itens desta sessão</h2>
+  <ul>
+    {{ITENS}}
+  </ul>
+</body>
+</html>
